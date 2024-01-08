@@ -40,8 +40,6 @@ test('bug', async () => {
 
   const u = new User("foo","foo@x.com")
   orm.em.persist(u)
-  await u.errors.loadItems()
-
-
+  await u.errors.loadItems() // error : Entity User is not managed. An entity is managed if its fetched from the database or registered as new through EntityManager.persist()
   
 });
