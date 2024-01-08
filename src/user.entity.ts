@@ -14,7 +14,7 @@ export class User {
   email: string;
 
  @ManyToMany(() => Item)
-  errors = new Collection<Item>(this);
+  items = new Collection<Item>(this);
 
 
   constructor(name: string, email: string) {
