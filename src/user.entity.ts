@@ -1,4 +1,5 @@
-import { Entity, PrimaryKey, Property } from '@mikro-orm/core';
+import { Collection, Entity, ManyToMany, PrimaryKey, Property } from '@mikro-orm/core';
+import { Item } from './items.entity';
 
 @Entity()
 export class User {
@@ -11,6 +12,10 @@ export class User {
 
   @Property({ unique: true })
   email: string;
+
+ @ManyToMany(() => Item)
+  errors = new Collection<Item>(this);
+
 
   constructor(name: string, email: string) {
     this.name = name;

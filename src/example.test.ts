@@ -31,4 +31,17 @@ test('basic CRUD example', async () => {
 
   const count = await orm.em.count(User, { email: 'foo' });
   expect(count).toBe(0);
+
+
+});
+
+
+test('bug', async () => {
+
+  const u = new User("foo","foo@x.com")
+  orm.em.persist(u)
+  await u.errors.loadItems()
+
+
+  
 });
